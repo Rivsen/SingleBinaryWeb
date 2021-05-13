@@ -18,3 +18,11 @@ cargo install -f wasm-pack cargo-make
 ```bash
 cargo make build
 ```
+
+3. Run
+
+```bash
+cargo run
+```
+
+and open `http://localhost:8000`, ping api is `http://localhost:8000/ping`
