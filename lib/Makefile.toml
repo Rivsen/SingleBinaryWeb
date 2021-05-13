@@ -20,3 +20,5 @@ args = ["run"]
 [tasks.run-release]
 command = "cargo"
 args = ["run", "--release"]
+
+[tasks.deps]
