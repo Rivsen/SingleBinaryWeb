@@ -1,23 +1,18 @@
-use actix_web::{get, web, web::ServiceConfig, HttpResponse, Responder};
 use actix_web::body::Body;
+use actix_web::{get, web, web::ServiceConfig, HttpResponse, Responder};
 use mime_guess::from_path;
 use rust_embed::RustEmbed;
-use std::borrow::Cow;
 use serde::Serialize;
+use std::borrow::Cow;
 
-pub (crate) fn init(cfg: &mut ServiceConfig) {
-    cfg
-        .service(web::resource("/").route(web::get().to(index)))
+pub(crate) fn init(cfg: &mut ServiceConfig) {
+    cfg.service(web::resource("/").route(web::get().to(index)))
         .service(
             web::scope("/")
                 .service(ping)
-                .service(
-                    web::scope("/api/v1")
-                        .service(ping),
-                )
-                .service(web::resource("/{_:.*}").route(web::get().to(frontend)))
-        )
-    ;
+                .service(web::scope("/api/v1").service(ping))
+                .service(web::resource("/{_:.*}").route(web::get().to(frontend))),
+        );
 }
 
 #[derive(RustEmbed)]
