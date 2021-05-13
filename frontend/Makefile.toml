@@ -1,0 +1,23 @@
+[env]
+CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
+
+[tasks.wasm-pack]
+command = "wasm-pack"
+args = ["build", "--target=web", "--out-name=wasm", "--out-dir=../static", "--", "-p=frontend"]
+
+[tasks.wasm-pack-offline]
+command = "wasm-pack"
+args = ["build", "--target=web", "--out-name=wasm", "--out-dir=../static", "--", "-p=frontend", "--offline"]
+
+[tasks.wasm-opt]
+command = "wasm-opt"
+args = ["build", "--target=web", "--out-name=wasm", "--out-dir=../static", "--", "-p=frontend"]
+
+[tasks.build]
+dependencies = ["wasm-pack"]
+
+[tasks.offline]
+dependencies = ["wasm-pack-offline"]
+
+[tasks.release]
+dependencies = ["wasm-pack"]
