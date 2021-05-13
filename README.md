@@ -16,6 +16,10 @@ cargo install -f wasm-pack cargo-make
 2. Init
 
 ```bash
+# install tools
+cargo make deps
+
+# build project
 cargo make build
 ```
 

@@ -21,3 +21,7 @@ dependencies = ["wasm-pack-offline"]
 
 [tasks.release]
 dependencies = ["wasm-pack"]
+
+[tasks.deps]
+command = "cargo"
+args = ["install", "cargo-make", "wasm-pack"]

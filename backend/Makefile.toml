@@ -12,3 +12,5 @@ args = ["build", "--offline"]
 [tasks.release]
 command = "cargo"
 args = ["build", "--release"]
+
+[tasks.deps]
