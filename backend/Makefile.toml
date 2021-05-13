@@ -1,0 +1,14 @@
+[env]
+CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
+
+[tasks.build]
+command = "cargo"
+args = ["build"]
+
+[tasks.offline]
+command = "cargo"
+args = ["build", "--offline"]
+
+[tasks.release]
+command = "cargo"
+args = ["build", "--release"]

@@ -1,0 +1,9 @@
+[workspace]
+
+members = [
+    "lib",
+    "frontend",
+    "backend",
+]
+
+default-members = ["backend"]
